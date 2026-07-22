@@ -208,7 +208,7 @@ export default function HomePage() {
 
       {/* Social Highlights */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <SocialHighlights limit={3} />
+        <SocialHighlights limit={6} />
       </section>
 
       {/* FAQ */}

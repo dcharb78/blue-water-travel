@@ -3,8 +3,15 @@ import type { Review } from "./types";
 /**
  * Public Facebook recommendations for Blue Water Travel (@bluewatertvl).
  * Facebook reports 96% recommend (16 reviews); only publicly visible text is included here.
+ * The remaining 15 Facebook recommendations require a Facebook login to view.
  * No indexed Google Business Profile reviews were found for this agency.
  */
+export const facebookPageStats = {
+  recommendPercent: 96,
+  totalReviews: 16,
+  url: "https://www.facebook.com/bluewatertvl/reviews",
+} as const;
+
 export const reviews: Review[] = [
   {
     id: "facebook-denise-tabb-cancun",

@@ -141,6 +141,41 @@ export const galleryImages: GalleryImage[] = [
     category: "team",
     caption: "Terri Jobe — Owner & Lead Advisor",
   },
+  {
+    id: "ig-hard-rock-punta-cana",
+    src: "/social/ig-Daynva7pgXW.jpg",
+    alt: "Hard Rock Punta Cana all-inclusive resort in the Dominican Republic",
+    category: "all-inclusive",
+    caption: "Hard Rock Punta Cana — DR resort review",
+  },
+  {
+    id: "ig-dreams-cap-cana",
+    src: "/social/ig-Dafoadjh8ov.jpg",
+    alt: "Dreams Cap Cana all-inclusive resort for family vacations",
+    category: "all-inclusive",
+    caption: "Dreams Cap Cana — family reunion destination",
+  },
+  {
+    id: "ig-destination-wedding",
+    src: "/social/ig-DasgYzbJJRD.jpg",
+    alt: "Unique destination wedding venue options beyond the beach",
+    category: "weddings",
+    caption: "Destination weddings — rooftops, gardens & floating decks",
+  },
+  {
+    id: "ig-lake-lotawana",
+    src: "/social/ig-DaaacrTTh1i.jpg",
+    alt: "Lake Lotawana Missouri scenic view at sunset",
+    category: "destinations",
+    caption: "Unforgettable moments at Lake Lotawana",
+  },
+  {
+    id: "ig-joie-highlight",
+    src: "/social/ig-DbBW421xYaI.jpg",
+    alt: "Joie Reardon, Blue Water Travel agent highlight",
+    category: "team",
+    caption: "Joie Reardon — Travel Agent",
+  },
 ];
 
 export const galleryCategories = [

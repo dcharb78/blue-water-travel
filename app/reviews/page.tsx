@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Testimonials } from "@/components/Testimonials";
 import { CtaBanner } from "@/components/CtaBanner";
 import { JsonLd } from "@/components/JsonLd";
+import { facebookPageStats } from "@/lib/content/reviews";
 import { buildMetadata, breadcrumbJsonLd, reviewsJsonLd, webPageJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -42,6 +44,23 @@ export default function ReviewsPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <Testimonials showSummary />
+
+        <aside className="mx-auto mt-12 max-w-2xl rounded-2xl border border-ocean-100 bg-ocean-50 p-6 text-center">
+          <p className="text-sm leading-relaxed text-ocean-700">
+            Blue Water Travel has a{" "}
+            <strong>{facebookPageStats.recommendPercent}% recommendation rate</strong> on Facebook
+            ({facebookPageStats.totalReviews} reviews). Most Facebook recommendations require a
+            login to view — we&apos;ve imported all publicly accessible reviews here.{" "}
+            <Link
+              href={facebookPageStats.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-ocean-800 underline hover:text-ocean-600"
+            >
+              See all on Facebook →
+            </Link>
+          </p>
+        </aside>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
