@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# Trailing slashes are handled by Next.js static export (trailingSlash: true)
+
+# Optional: redirect www to apex (configure in Cloudflare dashboard instead if preferred)
+# https://www.bluewatertravelandcruises.com/* https://bluewatertravelandcruises.com/:splat 301
