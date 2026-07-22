@@ -10,7 +10,7 @@ export const siteConfig = {
   email: "info@bluewatertravelandcruises.com",
   phone: "(816) 365-5978",
   instagram: "https://www.instagram.com/bluewatertrvl",
-  facebook: "https://www.facebook.com/BlueWaterTravel",
+  facebook: "https://www.facebook.com/bluewatertvl",
   pinterest: "https://www.pinterest.com/BlueWaterTravel",
   bookOnlineUrl: "https://www.bluewatertravelandcruises.com/book-online.html",
   requestQuoteUrl:

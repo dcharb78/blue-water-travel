@@ -38,7 +38,7 @@ export const socialPosts: SocialPost[] = [
   {
     id: "wine-country",
     platform: "facebook",
-    url: "https://www.facebook.com/BlueWaterTravel",
+    url: "https://www.facebook.com/bluewatertvl",
     image: "/gallery/wine-country.jpeg",
     caption:
       "Santa Rosa, Sonoma, and Napa — which wine country experience is right for you? We can help you decide.",
@@ -47,7 +47,7 @@ export const socialPosts: SocialPost[] = [
   {
     id: "voluntourism",
     platform: "facebook",
-    url: "https://www.facebook.com/BlueWaterTravel",
+    url: "https://www.facebook.com/bluewatertvl",
     image: "/gallery/voluntourism.jpg",
     caption:
       "Our first voluntourism trip with ALGVacations and Amstar — giving back while exploring Mexico.",
@@ -63,7 +63,7 @@ export const socialAccounts = {
   },
   facebook: {
     handle: "Blue Water Travel",
-    url: "https://www.facebook.com/BlueWaterTravel",
+    url: "https://www.facebook.com/bluewatertvl",
   },
   pinterest: {
     handle: "Blue Water Travel",
