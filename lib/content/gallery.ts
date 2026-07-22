@@ -309,6 +309,20 @@ export const galleryImages: GalleryImage[] = [
     category: "weddings",
     caption: "Elegant destination wedding reception lighting",
   },
+  {
+    id: "fb-panama-casco-viejo-flag",
+    src: "/social/fb-panama-casco-viejo-flag.jpg",
+    alt: "Panama flag hanging across a historic street in Casco Viejo with colonial buildings and outdoor café",
+    category: "destinations",
+    caption: "Casco Viejo, Panama City — historic streets and culture",
+  },
+  {
+    id: "fb-colonial-destination-building",
+    src: "/social/fb-colonial-destination-building.jpg",
+    alt: "Grand white colonial-style destination building framed by palm trees under a blue sky",
+    category: "destinations",
+    caption: "Colonial architecture at a featured travel destination",
+  },
 ];
 
 export const galleryCategories = [
