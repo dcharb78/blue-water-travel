@@ -8,10 +8,13 @@ export const siteConfig = {
   url: "https://www.bluewatertravelandcruises.com",
   locale: "en_US",
   email: "info@bluewatertravelandcruises.com",
-  phone: "(816) 555-0199",
+  phone: "(816) 365-5978",
   instagram: "https://www.instagram.com/bluewatertrvl",
-  facebook: "https://www.facebook.com/bluewatertrvl",
-  bookOnlineUrl: "https://www.bluewatertravelandcruises.com/book-online",
+  facebook: "https://www.facebook.com/BlueWaterTravel",
+  pinterest: "https://www.pinterest.com/BlueWaterTravel",
+  bookOnlineUrl: "https://www.bluewatertravelandcruises.com/book-online.html",
+  requestQuoteUrl:
+    "https://app.tern.travel/public/forms/HFbO8tMy9G65mlarO0H8kg/responses/new",
   address: {
     street: "Lake Lotawana",
     city: "Lake Lotawana",
@@ -52,7 +55,12 @@ export const navLinks = [
 ] as const;
 
 export const ctaLinks = [
-  { href: "/request-a-quote", label: "Request a Quote", primary: true, external: false },
+  {
+    href: siteConfig.requestQuoteUrl,
+    label: "Request a Quote",
+    primary: true,
+    external: true,
+  },
   { href: "/contact", label: "Contact Us", primary: false, external: false },
   { href: siteConfig.bookOnlineUrl, label: "Book Online", primary: false, external: true },
 ] as const;
@@ -122,22 +130,60 @@ export const services = [
 
 export const teamMembers = [
   {
-    name: "Your Travel Advisor",
-    role: "Lead Travel Consultant",
-    bio: "With decades of industry experience, our lead advisor listens first — then crafts itineraries that match how you actually want to travel.",
-    photo: "/gallery/team.svg",
+    name: "Terri Jobe",
+    role: "Owner & Lead Advisor",
+    bio: "As the owner of my travel agency, I'm passionate about helping others create unforgettable travel experiences. I live in the charming community of Lake Lotawana, Missouri, where I enjoy the peaceful lake life with my wonderful blended family. Being in the travel industry since 1994, opening my own agency in 2017 has been the most rewarding decision. Travel has always been my passion, and now I get to share that enthusiasm by turning my clients' dream vacations into reality.",
+    photo: "/team/terri-jobe.jpg",
+    phone: "(816) 365-5978",
   },
   {
-    name: "Destination Specialist",
-    role: "Cruise & Resort Expert",
-    bio: "Specializing in ocean and river cruises plus all-inclusive resorts, our destination specialist stays current on the latest ships, properties, and promotions.",
-    photo: "/gallery/caribbean.svg",
+    name: "Allison Dailey",
+    role: "Travel Advisor",
+    bio: "Born and raised in Lee's Summit, I've been with Blue Water Travel since 2022. Some of my favorite places are Cancun, London, and Sanibel, FL. In my free time I enjoy working out, reading, going to Chiefs games, and gardening. I have a Frenchie named Franklin who is my first-born son.",
+    photo: "/team/allison-headshot.jpeg",
+    phone: "(816) 217-4685",
   },
   {
-    name: "Wedding & Group Coordinator",
-    role: "Celebrations & Groups",
-    bio: "From destination weddings to multi-generational family reunions, we coordinate every detail so your group travels together seamlessly.",
-    photo: "/gallery/wedding.svg",
+    name: "Kristi Fate",
+    role: "Travel Advisor",
+    bio: "With over 30 years of personal travel experience, I've explored beautiful destinations across Mexico, the Caribbean, Hawaii, and the U.S. Through Blue Water Travel, I get to share my passion for travel by helping plan unforgettable vacations — easy and stress-free.",
+    photo: "/team/kristi-headshot.jpg",
+    phone: "(816) 719-2208",
+  },
+  {
+    name: "Brian Kimmell",
+    role: "Travel Advisor",
+    bio: "I've lived in Blue Springs with my wife for 25 years. I have a serious love for sunshine, sandy beaches, and unforgettable escapes — from the turquoise waters of Mexico to the all-inclusive bliss of the Dominican Republic. I'm here to guide you with personalized service that fits your style and budget.",
+    photo: "/team/brian-headshot.jpeg",
+    phone: "(816) 813-3894",
+  },
+  {
+    name: "Debbie Peterson",
+    role: "Travel Advisor",
+    bio: "My travel addiction began when my husband won a trip to Thailand many years ago. Since then I have sipped champagne at the top of the Eiffel Tower, ridden a camel at the base of the Pyramids, and cruised through the Panama Canal. I look forward to partnering and sharing my travel passion with you.",
+    photo: "/team/deb-headshot.jpg",
+    phone: "(816) 582-5933",
+  },
+  {
+    name: "Johnna Thielbar",
+    role: "Travel Advisor",
+    bio: "Based in Oak Grove, Missouri, with five kids, four grandkids, and two lovable dogs. My favorite destinations are Ireland and Sandals Grande Antigua. As your travel agent, I handle all the details so you can truly enjoy every moment of your journey.",
+    photo: "/team/johnna-thielbar.jpg",
+    phone: "(816) 699-0419",
+  },
+  {
+    name: "Joie Reardon",
+    role: "Social Media / Advisor",
+    bio: "Growing up with your mom as a Travel Advisor definitely has its perks! I earned my Bachelors Degree in Hospitality Leadership from Missouri State University. I love All-Inclusive travel in the Caribbean and have recently been inspired by European travel.",
+    photo: "/team/joie-headshot.jpg",
+    phone: "(816) 723-0407",
+  },
+  {
+    name: "Erica Wild",
+    role: "Travel Advisor",
+    bio: "My first international vacation was in 2014 for my honeymoon and I have loved to travel ever since! When I'm not traveling, I'm spending time outdoors at the lake, with family and friends, and cheering on the Chiefs.",
+    photo: "/team/erica-headshot.jpg",
+    phone: "(913) 708-2234",
   },
 ] as const;
 
@@ -169,26 +215,4 @@ export const faqs = [
   },
 ] as const;
 
-export const blogPosts = [
-  {
-    slug: "why-book-with-a-travel-advisor",
-    title: "Why Book With a Travel Advisor in 2026",
-    excerpt:
-      "The internet has endless options — but a trusted advisor saves time, money, and stress when plans change.",
-    date: "2026-01-15",
-  },
-  {
-    slug: "top-all-inclusive-resorts-for-families",
-    title: "Top All-Inclusive Resorts for Families",
-    excerpt:
-      "Our favorite properties for multi-generational trips where everyone from toddlers to grandparents has a great time.",
-    date: "2025-11-20",
-  },
-  {
-    slug: "planning-a-destination-wedding",
-    title: "Planning a Destination Wedding: Where to Start",
-    excerpt:
-      "From choosing the right resort to coordinating guest travel — a step-by-step guide from our wedding specialists.",
-    date: "2025-09-08",
-  },
-] as const;
+export { blogPosts } from "./content/blog";

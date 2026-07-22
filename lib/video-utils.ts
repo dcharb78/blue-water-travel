@@ -1,10 +1,14 @@
-export type VideoProvider = "youtube" | "vimeo" | "unknown";
+export type VideoProvider = "youtube" | "vimeo" | "local" | "unknown";
 
 export function parseVideoUrl(url: string): {
   provider: VideoProvider;
   embedUrl: string;
   thumbnailUrl: string;
 } {
+  if (url.endsWith(".mp4") || url.startsWith("/")) {
+    return { provider: "local", embedUrl: url, thumbnailUrl: "" };
+  }
+
   const youtubeMatch = url.match(
     /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
   );

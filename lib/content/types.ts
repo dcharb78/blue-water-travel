@@ -42,9 +42,16 @@ export type GalleryImage = {
 export type Video = {
   id: string;
   title: string;
-  /** Full YouTube or Vimeo URL */
+  /** Full YouTube, Vimeo, or local video URL */
   url: string;
   thumbnail?: string;
   description?: string;
   category?: GalleryCategory;
+};
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
 };

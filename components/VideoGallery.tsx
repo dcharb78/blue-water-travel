@@ -66,13 +66,24 @@ export function VideoGallery({ items = videos, featured }: VideoGalleryProps) {
           <div className="overflow-hidden rounded-2xl border border-ocean-100 bg-ocean-950 shadow-xl">
             <div className="aspect-video w-full">
               {playing?.id === featuredVideo.id ? (
-                <iframe
-                  src={`${parseVideoUrl(featuredVideo.url).embedUrl}?autoplay=1`}
-                  title={featuredVideo.title}
-                  className="h-full w-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                parseVideoUrl(featuredVideo.url).provider === "local" ? (
+                  // eslint-disable-next-line jsx-a11y/media-has-caption
+                  <video
+                    src={featuredVideo.url}
+                    controls
+                    autoPlay
+                    className="h-full w-full object-cover"
+                    poster={featuredVideo.thumbnail}
+                  />
+                ) : (
+                  <iframe
+                    src={`${parseVideoUrl(featuredVideo.url).embedUrl}?autoplay=1`}
+                    title={featuredVideo.title}
+                    className="h-full w-full border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                )
               ) : (
                 <button
                   type="button"
@@ -107,15 +118,26 @@ export function VideoGallery({ items = videos, featured }: VideoGalleryProps) {
             {gridItems.map((video) => (
               <div key={video.id}>
                 {playing?.id === video.id ? (
-                  <div className="aspect-video overflow-hidden rounded-2xl">
-                    <iframe
-                      src={`${parseVideoUrl(video.url).embedUrl}?autoplay=1`}
-                      title={video.title}
-                      className="h-full w-full border-0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
+                  parseVideoUrl(video.url).provider === "local" ? (
+                    // eslint-disable-next-line jsx-a11y/media-has-caption
+                    <video
+                      src={video.url}
+                      controls
+                      autoPlay
+                      className="h-full w-full rounded-2xl object-cover"
+                      poster={video.thumbnail}
                     />
-                  </div>
+                  ) : (
+                    <div className="aspect-video overflow-hidden rounded-2xl">
+                      <iframe
+                        src={`${parseVideoUrl(video.url).embedUrl}?autoplay=1`}
+                        title={video.title}
+                        className="h-full w-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  )
                 ) : (
                   <VideoCard video={video} onPlay={() => setPlaying(video)} />
                 )}

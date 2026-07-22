@@ -1,21 +1,11 @@
 import type { SocialPost } from "./types";
 
-/**
- * Curated social media highlights.
- *
- * HOW TO ADD A NEW POST:
- * 1. Save the post image to public/social/ (e.g. public/social/cabo-2026.jpg)
- * 2. Add an entry below with the post URL from Instagram or Facebook
- * 3. Optional: add embedUrl for live iframe embed (Instagram: .../p/ID/embed)
- *
- * For auto-syncing feeds later, consider Elfsight, Curator.io, or a Cloudflare Worker.
- */
 export const socialPosts: SocialPost[] = [
   {
     id: "cabo-sandos",
     platform: "instagram",
     url: "https://www.instagram.com/bluewatertrvl/",
-    image: "/gallery/caribbean.svg",
+    image: "/social/cabo-sandos-finisterra.jpg",
     caption:
       "Join us in Cabo at Sandos Finisterra Los Cabos — an unforgettable all-inclusive escape!",
     date: "2026-03-01",
@@ -24,41 +14,44 @@ export const socialPosts: SocialPost[] = [
     id: "travel-blue",
     platform: "instagram",
     url: "https://www.instagram.com/bluewatertrvl/",
-    image: "/gallery/cruise.svg",
+    image: "/gallery/hero-beach-formentera.jpg",
     caption: "We want you to travel blue! 🌊 Your dream vacation starts with a conversation.",
     date: "2026-02-14",
   },
   {
-    id: "europe-river",
+    id: "group-travel-host",
     platform: "instagram",
     url: "https://www.instagram.com/bluewatertrvl/",
-    image: "/gallery/europe.svg",
-    caption: "River cruising through Europe — intimate ships, stunning ports, zero stress.",
-    date: "2026-01-20",
+    image: "/gallery/group-travel_orig.jpg",
+    caption:
+      "Become a host for group travel and you could travel for FREE! Golf groups, yoga retreats, book clubs & more.",
+    date: "2025-07-14",
   },
   {
-    id: "wedding-destination",
-    platform: "facebook",
-    url: "https://www.facebook.com/bluewatertrvl",
-    image: "/gallery/wedding.svg",
-    caption: "Say 'I do' in paradise. We handle guest travel, room blocks, and every detail.",
-    date: "2025-12-05",
-  },
-  {
-    id: "alaska-cruise",
+    id: "perfect-day-cococay",
     platform: "instagram",
     url: "https://www.instagram.com/bluewatertrvl/",
-    image: "/gallery/alaska.svg",
-    caption: "Alaska glacier cruising season is here — let's find your perfect sailing.",
-    date: "2025-11-10",
+    image: "/gallery/perfect-day-cococay.jpg",
+    caption: "5 things you need to do at Perfect Day at CocoCay — Royal Caribbean's private island!",
+    date: "2024-12-04",
   },
   {
-    id: "family-resort",
+    id: "wine-country",
     platform: "facebook",
-    url: "https://www.facebook.com/bluewatertrvl",
-    image: "/gallery/family.svg",
-    caption: "Multi-generational trips made easy. Resorts the whole family will love.",
-    date: "2025-10-22",
+    url: "https://www.facebook.com/BlueWaterTravel",
+    image: "/gallery/wine-country.jpeg",
+    caption:
+      "Santa Rosa, Sonoma, and Napa — which wine country experience is right for you? We can help you decide.",
+    date: "2025-06-10",
+  },
+  {
+    id: "voluntourism",
+    platform: "facebook",
+    url: "https://www.facebook.com/BlueWaterTravel",
+    image: "/gallery/voluntourism.jpg",
+    caption:
+      "Our first voluntourism trip with ALGVacations and Amstar — giving back while exploring Mexico.",
+    date: "2025-04-26",
   },
 ];
 
@@ -70,6 +63,10 @@ export const socialAccounts = {
   },
   facebook: {
     handle: "Blue Water Travel",
-    url: "https://www.facebook.com/bluewatertrvl",
+    url: "https://www.facebook.com/BlueWaterTravel",
+  },
+  pinterest: {
+    handle: "Blue Water Travel",
+    url: "https://www.pinterest.com/BlueWaterTravel",
   },
 } as const;

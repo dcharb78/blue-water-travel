@@ -56,6 +56,26 @@ export function Footer() {
                 Instagram @bluewatertrvl
               </a>
             </li>
+            <li>
+              <a
+                href={siteConfig.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a
+                href={siteConfig.pinterest}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                Pinterest
+              </a>
+            </li>
           </ul>
         </div>
       </div>
