@@ -176,6 +176,62 @@ export const galleryImages: GalleryImage[] = [
     category: "team",
     caption: "Joie Reardon — Travel Agent",
   },
+  {
+    id: "fb-wedding-table-flowers",
+    src: "/social/fb-wedding-table-flowers.jpg",
+    alt: "Destination wedding reception table with floral centerpiece",
+    category: "weddings",
+    caption: "Destination wedding table setting — from Blue Water Travel Facebook",
+  },
+  {
+    id: "fb-wedding-ceremony-1",
+    src: "/social/fb-wedding-ceremony-1.jpg",
+    alt: "Destination wedding ceremony",
+    category: "weddings",
+    caption: "Destination wedding ceremony — Blue Water Travel Facebook",
+  },
+  {
+    id: "fb-wedding-ceremony-2",
+    src: "/social/fb-wedding-ceremony-2.jpg",
+    alt: "Outdoor destination wedding ceremony",
+    category: "weddings",
+    caption: "Beach or garden destination wedding — Blue Water Travel Facebook",
+  },
+  {
+    id: "fb-wedding-ceremony-3",
+    src: "/social/fb-wedding-ceremony-3.jpg",
+    alt: "Destination wedding celebration with guests",
+    category: "weddings",
+    caption: "Destination wedding celebration — Blue Water Travel Facebook",
+  },
+  {
+    id: "fb-wedding-floral-detail",
+    src: "/social/fb-wedding-floral-detail.jpg",
+    alt: "Wedding floral arrangement detail",
+    category: "weddings",
+    caption: "Wedding floral details — Blue Water Travel Facebook",
+  },
+  {
+    id: "fb-wedding-ceremony-4",
+    src: "/social/fb-wedding-ceremony-4.jpg",
+    alt: "Destination wedding ceremony moment",
+    category: "weddings",
+    caption: "Destination wedding moment — Blue Water Travel Facebook",
+  },
+  {
+    id: "fb-wedding-detail",
+    src: "/social/fb-wedding-detail.jpg",
+    alt: "Destination wedding detail shot",
+    category: "weddings",
+    caption: "Destination wedding detail — Blue Water Travel Facebook",
+  },
+  {
+    id: "fb-wedding-reception",
+    src: "/social/fb-wedding-reception.jpg",
+    alt: "Destination wedding reception",
+    category: "weddings",
+    caption: "Destination wedding reception — Blue Water Travel Facebook",
+  },
 ];
 
 export const galleryCategories = [

@@ -16,9 +16,10 @@ export type SocialPost = {
 export type Review = {
   id: string;
   author: string;
-  rating: 1 | 2 | 3 | 4 | 5;
+  /** Omitted for informal Facebook comment testimonials */
+  rating?: 1 | 2 | 3 | 4 | 5;
   text: string;
-  source: "Google" | "Facebook" | "TripAdvisor" | "Direct";
+  source: "Google" | "Facebook" | "Facebook Comment" | "TripAdvisor" | "Direct";
   date: string;
   tripType?: string;
 };

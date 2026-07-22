@@ -112,8 +112,19 @@ export const reviews: Review[] = [
   },
 ];
 
+/** Informal praise from Facebook post comments — kept separate from formal recommendations */
+export const facebookCommentReviews: Review[] = [];
+
+export const allDisplayReviews: Review[] = [...reviews, ...facebookCommentReviews];
+
+/** Only rated formal reviews — used for aggregate rating / JSON-LD */
+export function getRatedReviews(items: Review[] = reviews): Review[] {
+  return items.filter((r): r is Review & { rating: 1 | 2 | 3 | 4 | 5 } => r.rating != null);
+}
+
 export function getAverageRating(items: Review[] = reviews): number {
-  if (items.length === 0) return 0;
-  const sum = items.reduce((acc, r) => acc + r.rating, 0);
-  return Math.round((sum / items.length) * 10) / 10;
+  const rated = getRatedReviews(items);
+  if (rated.length === 0) return 0;
+  const sum = rated.reduce((acc, r) => acc + (r.rating ?? 0), 0);
+  return Math.round((sum / rated.length) * 10) / 10;
 }

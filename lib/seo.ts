@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAverageRating, reviews } from "./content/reviews";
+import { getAverageRating, getRatedReviews, reviews } from "./content/reviews";
 import { faqs, siteConfig } from "./site-config";
 
 type PageSeo = {
@@ -193,6 +193,7 @@ export function webPageJsonLd(title: string, description: string, path: string) 
 }
 
 export function reviewsJsonLd() {
+  const ratedReviews = getRatedReviews(reviews);
   const averageRating = getAverageRating(reviews);
   return {
     "@context": "https://schema.org",
@@ -202,11 +203,11 @@ export function reviewsJsonLd() {
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: averageRating,
-      reviewCount: reviews.length,
+      reviewCount: ratedReviews.length,
       bestRating: 5,
       worstRating: 1,
     },
-    review: reviews.map((review) => ({
+    review: ratedReviews.map((review) => ({
       "@type": "Review",
       author: {
         "@type": "Person",

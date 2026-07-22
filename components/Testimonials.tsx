@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { getAverageRating, reviews } from "@/lib/content/reviews";
+import { getAverageRating, getRatedReviews, reviews, facebookCommentReviews, allDisplayReviews } from "@/lib/content/reviews";
 import type { Review } from "@/lib/content/types";
 
 function StarRating({ rating }: { rating: number }) {
@@ -25,7 +25,13 @@ function StarRating({ rating }: { rating: number }) {
 function ReviewCard({ review }: { review: Review }) {
   return (
     <blockquote className="flex h-full flex-col rounded-2xl border border-ocean-100 bg-white p-6 shadow-sm">
-      <StarRating rating={review.rating} />
+      {review.rating != null ? (
+        <StarRating rating={review.rating} />
+      ) : (
+        <p className="text-xs font-semibold uppercase tracking-wider text-ocean-500">
+          Facebook comment
+        </p>
+      )}
       <p className="mt-4 flex-1 leading-relaxed text-ocean-700">&ldquo;{review.text}&rdquo;</p>
       <footer className="mt-6 border-t border-ocean-100 pt-4">
         <cite className="not-italic">
@@ -52,9 +58,12 @@ type TestimonialsProps = {
 };
 
 export function Testimonials({ limit, showSummary = true }: TestimonialsProps) {
-  const items = limit ? reviews.slice(0, limit) : reviews;
+  const formalItems = limit ? reviews.slice(0, limit) : reviews;
+  const commentItems = facebookCommentReviews;
+  const items = limit ? allDisplayReviews.slice(0, limit) : allDisplayReviews;
   const [activeIndex, setActiveIndex] = useState(0);
   const averageRating = getAverageRating(reviews);
+  const ratedCount = getRatedReviews(reviews).length;
 
   return (
     <section aria-labelledby="reviews-heading">
@@ -69,17 +78,35 @@ export function Testimonials({ limit, showSummary = true }: TestimonialsProps) {
           <div className="mt-4 flex items-center justify-center gap-3">
             <StarRating rating={Math.round(averageRating)} />
             <span className="text-lg font-semibold text-ocean-900">{averageRating}</span>
-            <span className="text-ocean-600">({reviews.length} reviews)</span>
+            <span className="text-ocean-600">({ratedCount} reviews)</span>
           </div>
         )}
       </div>
 
       {/* Desktop grid */}
       <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
-        {items.map((review) => (
+        {formalItems.map((review) => (
           <ReviewCard key={review.id} review={review} />
         ))}
       </div>
+
+      {commentItems.length > 0 && (
+        <div className="mt-16">
+          <h3 className="mb-6 text-center font-display text-2xl font-semibold text-ocean-950">
+            From Facebook Comments
+          </h3>
+          <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+            {commentItems.map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+          </div>
+          <div className="md:hidden">
+            {commentItems.map((review) => (
+              <ReviewCard key={review.id} review={review} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Mobile carousel */}
       <div className="md:hidden">
