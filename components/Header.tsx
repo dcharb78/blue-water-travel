@@ -61,7 +61,7 @@ export function Header() {
           )}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           {ctaLinks.map((cta) =>
             cta.external ? (
               <a
@@ -91,7 +91,7 @@ export function Header() {
 
         <button
           type="button"
-          className="rounded-lg p-2 text-ocean-800 lg:hidden"
+          className="flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-ocean-800 lg:hidden"
           aria-expanded={mobileOpen}
           aria-label="Toggle menu"
           onClick={() => setMobileOpen(!mobileOpen)}

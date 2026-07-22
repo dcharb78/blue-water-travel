@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { videos } from "@/lib/content/videos";
 import type { Video } from "@/lib/content/types";
 import { parseVideoUrl } from "@/lib/video-utils";
@@ -53,9 +53,31 @@ type VideoGalleryProps = {
 };
 
 export function VideoGallery({ items = videos, featured }: VideoGalleryProps) {
-  const [playing, setPlaying] = useState<Video | null>(featured ?? null);
-
   const featuredVideo = featured ?? items[0];
+  const [playing, setPlaying] = useState<Video | null>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const syncAutoplay = () => {
+      if (mediaQuery.matches && !motionQuery.matches && featuredVideo) {
+        setPlaying(featuredVideo);
+      } else {
+        setPlaying((current) =>
+          current?.id === featuredVideo?.id ? null : current
+        );
+      }
+    };
+
+    syncAutoplay();
+    mediaQuery.addEventListener("change", syncAutoplay);
+    motionQuery.addEventListener("change", syncAutoplay);
+    return () => {
+      mediaQuery.removeEventListener("change", syncAutoplay);
+      motionQuery.removeEventListener("change", syncAutoplay);
+    };
+  }, [featuredVideo]);
   const gridItems = featured ? items.filter((v) => v.id !== featured.id) : items.slice(1);
 
   return (
@@ -72,6 +94,8 @@ export function VideoGallery({ items = videos, featured }: VideoGalleryProps) {
                     src={featuredVideo.url}
                     controls
                     autoPlay
+                    playsInline
+                    muted
                     className="h-full w-full object-cover"
                     poster={featuredVideo.thumbnail}
                   />
@@ -91,7 +115,17 @@ export function VideoGallery({ items = videos, featured }: VideoGalleryProps) {
                   className="relative h-full w-full"
                   aria-label={`Play featured video: ${featuredVideo.title}`}
                 >
-                  <div className="flex h-full items-center justify-center bg-gradient-to-br from-ocean-800 to-ocean-950">
+                  {featuredVideo.thumbnail ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={featuredVideo.thumbnail}
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center bg-gradient-to-br from-ocean-800 to-ocean-950" />
+                  )}
+                  <div className="absolute inset-0 flex items-center justify-center">
                     <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-ocean-800 shadow-xl">
                       <svg className="ml-1 h-10 w-10" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
@@ -124,6 +158,8 @@ export function VideoGallery({ items = videos, featured }: VideoGalleryProps) {
                       src={video.url}
                       controls
                       autoPlay
+                      playsInline
+                      muted
                       className="h-full w-full rounded-2xl object-cover"
                       poster={video.thumbnail}
                     />
